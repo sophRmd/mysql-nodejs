@@ -19,8 +19,13 @@
                     <td><%-estudante[i].id %></td>
                     <td><%-estudante[i].nomecompleto %></td>
                     <td><%-estudante[i].email %></td>
-                    <td><a href="/delete-estudante?id= <%-estudante[i].id %>">Excluir</a></td>
-                    <td><a href="/update-estudante?id= <%-estudante[i].id%>">Alterar</a></td>
+                    <td>
+                        <form action="/delete-estudante?_method=DELETE" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%=estudante[i].id%>">
+                            <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
+                        </form>
+                    </td>
+                    <td><a href="/update-estudante?id= <%=estudante[i].id%>">Alterar</a></td>
                 </tr>
             <% } %>
 
